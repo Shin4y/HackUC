@@ -1,0 +1,21 @@
+//Holy shit i just lost an entire page of stuff i wrote. Whatever. Making frames and blocks in java. Here you go.
+public class start extends JFrame{//remember to extend JFrame to every class in which u want to make a frame in.
+	public static void main(String[] a) {
+		JFrame window = new JFrame();// makes a new instance of JFrame called window.
+		window.setDefaultCloseOperation(EXIT_ON_CLOSE);//makes it so the window closes when you exit out of the window.
+		window.setBounds(30,30, 500, 500);Sets the boundaries of the frame. The Parameters are as so: setBounds(xcoordinate, ycoordinate, height, width);
+		window.getContentPane().add(new board());the add feature allows us to add components to our frame
+		window.getContentPane().setBackground(Color.black);// sets the background color
+		window.setVisible(true);//make the frame visible. Should be at the end of code to make sure everything is made b4 making the panel visible.
+	}
+}
+public class board extends JComponent{
+  public void paint(Graphics g){
+    Graphics2D g2 = (Graphics2D) g; makes an instance of 2D graphics tool called g2
+				float thickness = 2; 
+				Stroke oldStroke = g2.getStroke();//makes an instance of stroke or border
+				g2.setStroke(new BasicStroke(thickness));// makes stroke 2 units thick
+			    g2.setPaint(Color.white);//sets the fill color to white.
+				g2.fill(new Rectangle2D.Double(startX + incrementX,startY + incrementY, 20,20));//makes a filled in rectangle. The parameters are fill(new Rectangle2D.Double(xcoordinate, y coordinate, height, width);
+				g2.setPaint(Color.black);
+				g2.draw(new Rectangle2D.Double(startX + incrementX,startY + incrementY,20,20));//Same thing as fill except it only draws, doesnt fill.
