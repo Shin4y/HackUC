@@ -1,0 +1,30 @@
+//hey guys just wanted to make it a little easier to learn today and then help me cus i need help. So without further
+//ado we are going to be learning classes. Classes are declared as such:
+
+public class Fiona{
+    public string name;//Classes can have fields or properties in them
+    public int age = 10;//You can assign values to them in it or assign it later
+    public Fiona(string Name, int t){//This is called a constructor of a class. You can use it to make instances of your classes have preset values.
+        name = Name; //In your instance of this class, the name field will equal what you put in the parameters of the code.
+        age = t; //Same here
+    }
+    //You can also declare functions in your classes
+    public void becomeMother(){
+        System.out.println("Stay out of trouble);
+    }
+}
+//Now to explain how to actually use classes in our code
+public class run{
+    public static void main(String[] a) {
+        //to make an instance of class, do as so:
+        Fiona fiona1 = new Fiona("Not Fiona", 45); This makes a new instance of Fiona called fiona1. Because we made a constructor
+        // in our class above, it will take the parameters of a string and an int.
+        //Now to access our variables or fields in our instance of the Fiona class, we can do as so:
+        System.out.println(fiona1.name + " is her name");//this should output to the console "Not Fiona is her name".
+        //It's the same with calling functions of classes
+        fiona1.becomeMother(); //This should execute the code wwritten on lines 12-14.
+    }
+    //wonderful! You now know the basics of object orientated programming. I'm not including anything on ineheritance this time, but if we decide to use it in our code, ill teach it to you guys later.
+    
+    
+    
