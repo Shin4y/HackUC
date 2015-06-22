@@ -1,0 +1,123 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class mainFrame extends JFrame{	
+	public static JButton myFirstButton;
+	public static JButton mySecondButton;
+    
+    public mainFrame(){
+    	super("work");
+    	
+    	myFirstButton = new JButton("First Frame");
+    	myFirstButton.setFont(new Font(" Arial", Font.BOLD, 18));
+    	myFirstButton.setBackground(Color.green);
+    	
+    	mySecondButton = new JButton("Second Frame");
+    	mySecondButton.setFont(new Font("Arial", Font.BOLD, 17));
+    	mySecondButton.setBackground(Color.red);
+    	
+    	Container c = getContentPane();
+    	FlowLayout f = new FlowLayout(FlowLayout.LEFT);
+    	c.setLayout(f);
+    	c.add(myFirstButton);
+    	c.add(mySecondButton);
+    	ButtonHandler handler = new ButtonHandler();
+    	myFirstButton.addActionListener(handler);
+    	mySecondButton.addActionListener(handler);
+    	
+    	setSize(400,300);
+    	show();
+    	
+    	
+    }
+
+}
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class ButtonHandler implements ActionListener{
+	public void actionPerformed(ActionEvent e){
+		if (e.getSource() == mainFrame.myFirstButton) {
+				new newFrame1();
+			}
+		if(e.getSource() == mainFrame.mySecondButton){
+			new newFrame2();
+		}
+			
+	}
+}
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+
+public class mainThread {
+
+	public static void main(String[] args) {
+		mainFrame m = new mainFrame();
+		
+		m.addWindowListener(
+				new WindowAdapter(){
+					public void windowClosing(WindowEvent e){
+						System.exit(0);
+					}
+				});
+	}
+}
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class newFrame1 extends JFrame implements ActionListener {
+	
+	public newFrame1(){
+		JButton open = new JButton("New Window");
+		open.addActionListener(this);
+		add(open);
+		setVisible(true);
+	}
+	public void actionPerformed(ActionEvent event){
+		JFrame frame = new JFrame("Simple GUI");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JLabel textLabel = new JLabel("I want this to work", SwingConstants.CENTER);
+		textLabel.setPreferredSize(new Dimension(300,100));
+		frame.getContentPane().add(textLabel, BorderLayout.CENTER);
+		frame.setLocationRelativeTo(null);
+		frame.pack();
+		frame.setVisible(true);
+		
+		
+	}
+
+}
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+public class newFrame2 extends JFrame implements ActionListener{
+	public newFrame2(){
+		
+	 JButton open = new JButton("New Window");
+     open.addActionListener(this);
+     add(open);
+     setVisible(true);
+	}
+	public void actionPerformed(ActionEvent event){
+		JFrame frame = new JFrame("Simple GUI 2");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JLabel textLabel = new JLabel("I want this to work", SwingConstants.CENTER);
+		textLabel.setPreferredSize(new Dimension(300,100));
+		frame.getContentPane().add(textLabel, BorderLayout.CENTER);
+		frame.setLocationRelativeTo(null);
+		frame.pack();
+		frame.setVisible(true);
+		
+	}
+
+}
+
