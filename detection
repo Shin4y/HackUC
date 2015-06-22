@@ -1,0 +1,12 @@
+public class graph {
+	public graph(){
+		int [][] board = new int [13][8];
+		for(int t = 0; t < 13; t++){
+			for(int r = 0; r < 8; r++){
+				board[t][r] = 0;
+			}
+		}
+		
+	}
+
+}
